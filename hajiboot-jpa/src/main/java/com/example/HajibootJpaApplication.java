@@ -24,7 +24,7 @@ public class HajibootJpaApplication implements CommandLineRunner {
 		System.out.println(created + " is created!");
 		
 		var pageable = PageRequest.of(0, 3);
-		var page = customerRepository.findAll(pageable);
+		var page = customerRepository.findAllOrderByName(pageable);
 		System.out.println("1ページのデータ数 = " + page.getSize());
 		System.out.println("現在のページ = " + page.getNumber());
 		System.out.println("全ページ数 = " + page.getTotalPages());
