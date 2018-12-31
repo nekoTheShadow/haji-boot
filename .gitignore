@@ -1,0 +1,11 @@
+.metadata/
+Servers/
+
+*/.classpath
+*/.gitignore
+*/.mvn
+*/.project
+*/.settings
+*/mvnw*
+*/mvnw.cmd
+*/target/
