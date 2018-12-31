@@ -14,8 +14,8 @@ public class HajibootJdbcApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		var sql = "SELECT 1";
-		var param = new MapSqlParameterSource();
+		var sql = "SELECT :a + :b";
+		var param = new MapSqlParameterSource().addValue("a", 100).addValue("b", 200);
 		var result = jdbcTemplate.queryForObject(sql, param, Integer.class);
 		System.out.println("result = " + result);
 	}
