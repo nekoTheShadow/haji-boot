@@ -21,7 +21,7 @@ public class HajibootJpaApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		var created = customerRepository.save(new Customer(null, "Hidetoshi", "Dekisugi"));
 		System.out.println(created + " is created!");
-		customerRepository.findAll().forEach(System.out::println);
+		customerRepository.findAllOrderByName().forEach(System.out::println);
 	}
 }
 
