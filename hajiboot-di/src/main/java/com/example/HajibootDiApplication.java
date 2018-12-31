@@ -1,17 +1,32 @@
 package com.example;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.example.app.Frontend;
+import com.example.app.ArgumentResolver;
+import com.example.app.Calculator;
 
 @SpringBootApplication
-public class HajibootDiApplication {
+public class HajibootDiApplication implements CommandLineRunner {
 
 	public static void main(String[] args) {
-		var context = SpringApplication.run(HajibootDiApplication.class, args);
-		var frontend = context.getBean(Frontend.class);
-		frontend.run();
+		SpringApplication.run(HajibootDiApplication.class, args);
+	}
+	
+	@Autowired
+	ArgumentResolver argumentResolver;
+	
+	@Autowired
+	Calculator calculator;
+	
+	@Override
+	public void run(String... args) throws Exception {
+		System.out.print("Enter 2 numbers like 'a b' : ");
+		var argument = argumentResolver.resolve(System.in);
+		int result = calculator.calc(argument.getA(), argument.getB());
+		System.out.println("result = " + result);
 	}
 
 }
