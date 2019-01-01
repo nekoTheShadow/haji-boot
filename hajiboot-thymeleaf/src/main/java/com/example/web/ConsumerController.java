@@ -70,4 +70,10 @@ public class ConsumerController {
 	String goToTop() {
 		return  "redirect:/customers";
 	}
+	
+	@PostMapping(path = "delete")
+	String delete(@RequestParam Integer id) {
+		customerService.delete(id);
+		return "redirect:/customers";
+	}
 }
