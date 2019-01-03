@@ -9,3 +9,8 @@ Servers/
 */mvnw*
 */mvnw.cmd
 */target/
+
+*/Include
+*/Lib
+*/Scripts
+*/pyvenv.cfg
