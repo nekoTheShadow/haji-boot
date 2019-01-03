@@ -3,7 +3,8 @@ import os, sys
 
 @route('/')
 def index():
-    return '<br />'.join('{0} = {1}'.format(k, v) for k, v in os.environ.items())
+    tokens = ["Ver.2", *('{0} = {1}'.format(k, v) for k, v in os.environ.items())]
+    return '<br />'.join(tokens)
 
 @route('/kill')
 def kill():
