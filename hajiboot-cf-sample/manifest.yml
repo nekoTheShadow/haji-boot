@@ -4,4 +4,4 @@ applications:
   memory: 64M
   path: .
   command: python main.py
-  instances: 1
+  instances: 3

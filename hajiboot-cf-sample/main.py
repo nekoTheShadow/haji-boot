@@ -1,9 +1,13 @@
 from bottle import route, run
-import os
+import os, sys
 
 @route('/')
 def index():
     return '<br />'.join('{0} = {1}'.format(k, v) for k, v in os.environ.items())
+
+@route('/kill')
+def kill():
+    sys.exit(1)
 
 if __name__ == '__main__':
     if os.getenv('VCAP_APP_PORT'):
