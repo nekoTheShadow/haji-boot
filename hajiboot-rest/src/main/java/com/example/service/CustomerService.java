@@ -14,27 +14,27 @@ import com.example.repository.CustomerRepository;
 public class CustomerService {
 	@Autowired
 	CustomerRepository customerRepository;
-	
+
 	public List<Customer> findAll() {
 		return customerRepository.findAll();
 	}
-	
+
 	public Customer findOne(Integer id) {
 		return customerRepository.findById(id).get();
 	}
-	
+
 	public Customer create(Customer customer) {
 		return customerRepository.save(customer);
 	}
-	
+
 	public Customer update(Customer customer) {
 		return customerRepository.save(customer);
 	}
-	
+
 	public void delete(Integer id) {
 		customerRepository.deleteById(id);
 	}
-	
+
 	public Page<Customer> findAll(Pageable pageable) {
 		return customerRepository.findAllOrderByName(pageable);
 	}

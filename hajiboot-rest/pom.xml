@@ -13,7 +13,6 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>hajiboot-rest</name>
 	<description>Demo project for Spring Boot</description>
-
 	<properties>
 		<java.version>11</java.version>
 	</properties>
@@ -28,11 +27,6 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
-		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -49,6 +43,32 @@
 			<artifactId>log4jdbc-log4j2-jdbc4.1</artifactId>
 			<version>1.16</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-spring-service-connector</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-cloudfoundry-connector</artifactId>
+		</dependency>
+		<!-- https://www-01.ibm.com/support/docview.wss?uid=swg21363866 -->
+		<!-- DB2 Version 11.1 -->
+		<!-- JDBC 4.0 Driver (db2jcc4.jar) -->
+		<!-- Driver version 4.25.13 -->
+		<dependency>
+			<groupId>com.ibm.db2.jcc</groupId>
+			<artifactId>db2jcc4</artifactId>
+			<version>3.72</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/db2jcc4.jar</systemPath>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -56,6 +76,9 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<includeSystemScope>true</includeSystemScope>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

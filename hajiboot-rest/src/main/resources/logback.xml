@@ -3,5 +3,5 @@
 <configuration>
 	<include resource="org/springframework/boot/logging/logback/base.xml" />
 	<logger name="jdbc.sqltiming" level="DEBUG" /> 
-	<logger name="jdbc" level="OFF" /> 
+	<logger name="jdbc" level="OFF" />
 </configuration>

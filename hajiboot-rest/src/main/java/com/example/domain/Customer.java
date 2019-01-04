@@ -12,18 +12,18 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name="customers")
+@Table(name = "customers")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Customer {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
-	@Column(nullable=false)
+
+	@Column(nullable = false)
 	private String firstName;
-	
-	@Column(nullable=false)
+
+	@Column(nullable = false)
 	private String lastName;
 }

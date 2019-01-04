@@ -23,30 +23,30 @@ import com.example.service.CustomerService;
 public class CustomerRestController {
 	@Autowired
 	CustomerService customerService;
-	
+
 	@GetMapping
 	Page<Customer> getCustomers(@PageableDefault Pageable pageable) {
 		return customerService.findAll(pageable);
 	}
-	
+
 	@GetMapping(path = "{id}")
 	Customer getCustomer(@PathVariable Integer id) {
 		return customerService.findOne(id);
 	}
-	
+
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	Customer postCustomers(@RequestBody Customer customer) {
 		return customerService.create(customer);
 	}
-	
-	@PutMapping(path="{id}")
+
+	@PutMapping(path = "{id}")
 	Customer putCustomer(@PathVariable Integer id, @RequestBody Customer customer) {
 		customer.setId(id);
 		return customerService.update(customer);
 	}
-	
-	@DeleteMapping(path="{id}")
+
+	@DeleteMapping(path = "{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	void deleteCustomer(@PathVariable Integer id) {
 		customerService.delete(id);
